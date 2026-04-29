@@ -182,3 +182,71 @@ footer {
     font-size: 22px;
   }
 }
+/* AÇÕES DO TOPO */
+.acoes-topo {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.acoes-topo input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.acoes-topo button {
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+/* DETALHES */
+.detalhes {
+  display: none;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #555;
+}
+
+.detalhes.ativo {
+  display: block;
+}
+
+/* BOTÃO DETALHES */
+.btn-detalhes {
+  margin-bottom: 10px;
+  background: #ddd;
+  color: #000;
+}
+
+.btn-detalhes:hover {
+  background: #ccc;
+}
+
+/* DARK MODE */
+.dark-mode {
+  background-color: #111;
+  color: #eee;
+}
+
+.dark-mode header,
+.dark-mode footer {
+  background: #000;
+}
+
+.dark-mode .produto {
+  background: #1c1c1c;
+  border-color: #333;
+}
+
+.dark-mode button {
+  background: #fff;
+  color: #000;
+}
+
+.dark-mode nav a {
+  color: #ccc;
+}

@@ -1,24 +1,19 @@
 // ================================
-// ALERTA + CONTADOR DE CLIQUES
+// BOTÃO COMPRAR + CONTADOR
 // ================================
 
-// Seleciona todos os botões de compra
 const botoes = document.querySelectorAll(".btn-comprar");
 
-// Loop em cada botão
 botoes.forEach((botao) => {
   let contador = 0;
 
   botao.addEventListener("click", () => {
     contador++;
 
-    // Nome do produto
     const produto = botao.parentElement.querySelector("h3").innerText;
 
-    // Alerta
     alert(`✅ ${produto} adicionado ao carrinho!`);
 
-    // Criar ou atualizar contador visual
     let contadorSpan = botao.parentElement.querySelector(".contador");
 
     if (!contadorSpan) {
@@ -33,24 +28,66 @@ botoes.forEach((botao) => {
 
 
 // ================================
-// DATA E HORA ATUAL
+// DATA E HORA
 // ================================
 
 function atualizarDataHora() {
   const agora = new Date();
 
-  const dataFormatada = agora.toLocaleDateString("pt-BR");
-  const horaFormatada = agora.toLocaleTimeString("pt-BR");
+  const data = agora.toLocaleDateString("pt-BR");
+  const hora = agora.toLocaleTimeString("pt-BR");
 
   const elemento = document.getElementById("data-hora");
 
   if (elemento) {
-    elemento.innerText = `🕒 ${dataFormatada} - ${horaFormatada}`;
+    elemento.innerText = `🕒 ${data} - ${hora}`;
   }
 }
 
-// Atualiza a cada segundo
 setInterval(atualizarDataHora, 1000);
-
-// Executa na primeira vez
 atualizarDataHora();
+
+
+// ================================
+// MODO ESCURO
+// ================================
+
+const btnTema = document.getElementById("toggle-tema");
+
+btnTema.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+});
+
+
+// ================================
+// MOSTRAR / ESCONDER DETALHES
+// ================================
+
+const botoesDetalhes = document.querySelectorAll(".btn-detalhes");
+
+botoesDetalhes.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const detalhes = btn.nextElementSibling;
+
+    detalhes.classList.toggle("ativo");
+  });
+});
+
+
+// ================================
+// BUSCA DE PRODUTOS
+// ================================
+
+const campoBusca = document.getElementById("campo-busca");
+const btnBuscar = document.getElementById("btn-buscar");
+
+btnBuscar.addEventListener("click", () => {
+  const valor = campoBusca.value.trim();
+
+  if (valor === "") {
+    alert("⚠️ Digite algo para buscar!");
+    return;
+  }
+
+  alert(`🔎 Você buscou por: "${valor}"`);
+});
