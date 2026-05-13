@@ -8,38 +8,36 @@
 /* BASE */
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  background-color: #f4f4f4;
+  background: #f4f4f4;
   color: #111;
   line-height: 1.6;
+  transition: 0.3s;
 }
 
 /* HEADER */
 header {
   background: #000;
   color: #fff;
-  padding: 20px 0;
+  padding: 20px;
   text-align: center;
-  border-bottom: 1px solid #222;
 }
 
 header h1 {
-  font-size: 28px;
+  font-size: 32px;
   letter-spacing: 2px;
-  font-weight: 600;
 }
 
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-top: 10px;
+  gap: 25px;
+  margin-top: 15px;
 }
 
 nav a {
-  text-decoration: none;
   color: #aaa;
-  font-size: 14px;
+  text-decoration: none;
   transition: 0.3s;
 }
 
@@ -47,19 +45,71 @@ nav a:hover {
   color: #fff;
 }
 
+/* AÇÕES TOPO */
+.acoes-topo {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.acoes-topo input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 220px;
+}
+
+.acoes-topo button {
+  width: auto;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #000, #222);
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h2 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.btn-hero {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.btn-hero:hover {
+  background: #ccc;
+}
+
 /* MAIN */
 main {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 30px 20px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
-/* TÍTULO */
-.produtos h2 {
+/* TITULOS */
+.produtos h2,
+.produtos-api h2 {
   text-align: center;
-  font-size: 26px;
   margin-bottom: 30px;
-  letter-spacing: 1px;
+  font-size: 28px;
 }
 
 /* GRID */
@@ -69,69 +119,59 @@ main {
   gap: 30px;
 }
 
-/* PRODUTO CARD */
+/* CARD */
 .produto {
   background: #fff;
   border-radius: 10px;
   padding: 20px;
   text-align: center;
-  transition: all 0.3s ease;
-  border: 1px solid #eee;
-  position: relative;
+  transition: 0.3s;
   overflow: hidden;
 }
 
 .produto:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-/* IMAGEM */
 .produto img {
   width: 100%;
   height: 200px;
   object-fit: contain;
-  margin-bottom: 15px;
-  transition: transform 0.4s ease;
+  transition: 0.4s;
 }
 
 .produto:hover img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
-/* TEXTO */
 .produto h3 {
-  font-size: 18px;
-  margin-bottom: 8px;
-  font-weight: 600;
+  margin: 15px 0 10px;
 }
 
 .produto p {
-  font-size: 14px;
   color: #666;
-  margin-bottom: 15px;
+  font-size: 14px;
 }
 
-/* PREÇO */
 .preco {
   display: block;
-  font-size: 18px;
+  margin: 15px 0;
+  font-size: 20px;
   font-weight: bold;
-  margin-bottom: 15px;
 }
 
-/* BOTÃO */
+/* BOTÕES */
 button {
   background: #000;
   color: #fff;
   border: none;
   padding: 12px;
-  width: 100%;
-  border-radius: 6px;
-  font-size: 14px;
-  letter-spacing: 1px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.3s;
+  margin-top: 10px;
+  width: 100%;
 }
 
 button:hover {
@@ -140,11 +180,20 @@ button:hover {
   border: 1px solid #000;
 }
 
-/* CONTADOR (JS) */
+/* DETALHES */
+.detalhes {
+  display: none;
+  margin-top: 10px;
+}
+
+.detalhes.ativo {
+  display: block;
+}
+
+/* CONTADOR */
 .contador {
   display: block;
   margin-top: 10px;
-  font-size: 13px;
   color: #28a745;
   font-weight: bold;
 }
@@ -152,101 +201,53 @@ button:hover {
 /* FOOTER */
 footer {
   background: #000;
-  color: #888;
+  color: #aaa;
   text-align: center;
-  padding: 20px;
+  padding: 30px 20px;
   margin-top: 50px;
-  font-size: 14px;
-  border-top: 1px solid #222;
 }
 
-/* DATA/HORA */
+/* DATA */
 #data-hora {
   margin-top: 10px;
-  font-size: 13px;
-  color: #aaa;
+}
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #000;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  opacity: 0.95;
+}
+
+/* DARK MODE */
+.dark-mode {
+  background: #111;
+  color: #fff;
+}
+
+.dark-mode .produto {
+  background: #1d1d1d;
+}
+
+.dark-mode p {
+  color: #ccc;
 }
 
 /* RESPONSIVO */
 @media (max-width: 768px) {
+
   nav ul {
     flex-direction: column;
     gap: 10px;
   }
 
-  header h1 {
-    font-size: 22px;
+  .hero h2 {
+    font-size: 28px;
   }
 
-  .produtos h2 {
-    font-size: 22px;
-  }
-}
-/* AÇÕES DO TOPO */
-.acoes-topo {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.acoes-topo input {
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.acoes-topo button {
-  padding: 8px 10px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
-
-/* DETALHES */
-.detalhes {
-  display: none;
-  margin-top: 10px;
-  font-size: 13px;
-  color: #555;
-}
-
-.detalhes.ativo {
-  display: block;
-}
-
-/* BOTÃO DETALHES */
-.btn-detalhes {
-  margin-bottom: 10px;
-  background: #ddd;
-  color: #000;
-}
-
-.btn-detalhes:hover {
-  background: #ccc;
-}
-
-/* DARK MODE */
-.dark-mode {
-  background-color: #111;
-  color: #eee;
-}
-
-.dark-mode header,
-.dark-mode footer {
-  background: #000;
-}
-
-.dark-mode .produto {
-  background: #1c1c1c;
-  border-color: #333;
-}
-
-.dark-mode button {
-  background: #fff;
-  color: #000;
-}
-
-.dark-mode nav a {
-  color: #ccc;
 }
